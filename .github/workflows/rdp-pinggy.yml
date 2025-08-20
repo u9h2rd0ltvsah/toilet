@@ -23,10 +23,6 @@ jobs:
           Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 0
           Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
-      - name: Download Pinggy
-        run: |
-          Invoke-WebRequest -Uri "https://github.com/pinggyio/pinggy/releases/latest/download/pinggy-windows.exe" -OutFile "C:\pinggy.exe"
-
       - name: Start Pinggy SSH with RDP port forwarding
         run: |
-          Start-Process "C:\pinggy.exe" -ArgumentList "ssh -p 443 -R0:localhost:3389 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 t5w9T4lcjRY+tcp@free.pinggy.io" -NoNewWindow
+          Start-Process "ssh" -ArgumentList "-p 443 -R0:localhost:3389 -o StrictHostKeyChecking=no -o ServerAliveInterval=30 t5w9T4lcjRY+tcp@free.pinggy.io" -NoNewWindow
