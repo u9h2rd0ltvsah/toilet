@@ -14,7 +14,7 @@ jobs:
       - name: Create a new user
         run: |
           $username = "root"
-          $password = "1"
+          $password = "1234"
           net user $username $password /add
           net localgroup administrators $username /add
 
