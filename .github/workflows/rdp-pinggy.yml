@@ -26,4 +26,4 @@ jobs:
       - name: Start Pinggy SSH with RDP port forwarding
         run: |
           Invoke-WebRequest -Uri "https://the.earth.li/~sgtatham/putty/latest/w64/plink.exe" -OutFile "C:\plink.exe"
-          C:\plink.exe -ssh t5w9T4lcjRY+tcp@free.pinggy.io -P 443 -pw t5w9T4lcjRY -R0:localhost:3389 -N -v
+          C:\plink.exe -ssh t5w9T4lcjRY+tcp@free.pinggy.io -P 443 -pw t5w9T4lcjRY -R 3389:localhost:3389 -N -v
